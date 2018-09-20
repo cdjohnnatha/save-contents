@@ -4,7 +4,7 @@ module Api::V1
   class ExtractorsController < ApiController
     def create
       service = ExtractorService.new(extractor_params)
-      service.extractContent
+      service.extract_contents
       # @extractor = Extractor.new(extractor_params)
       # if @extractor.save
       #   render status: :created
