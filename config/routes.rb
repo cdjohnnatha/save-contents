@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      jsonapi_resources :extractors
+      post "/extractors", to: "extractors#create", as: "create_extractor"
+      # jsonapi_resources :extractors
     end
   end
 end

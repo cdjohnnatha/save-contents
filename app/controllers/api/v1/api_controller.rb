@@ -2,5 +2,6 @@
 
 module Api::V1
   class ApiController < ApplicationController
+    include SerializerResourceHelper
   end
 end
