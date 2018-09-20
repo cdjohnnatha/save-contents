@@ -34,6 +34,8 @@ gem 'jsonapi-utils', '~> 0.7.2'
 gem "dotenv-rails"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+# Generates swagger-ui json files for Rails APIs with a simple DSL.
+gem "swagger-blocks"
 
 group :development, :test do
 
