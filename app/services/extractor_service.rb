@@ -1,4 +1,6 @@
-require 'net/http'
+# frozen_string_literal: true
+
+require "net/http"
 class ExtractorService
   attr_accessor :url, :uri, :full_content, :links_arr, :links_regex, :h_regex, :a_tag_regex
 

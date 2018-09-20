@@ -1,22 +1,26 @@
-require 'net/http'
+# frozen_string_literal: true
+
+require "net/http"
 
 module Api::V1
   class ExtractorsController < ApiController
     def create
-      service = ExtractorService.new(extractor_params)
-      service.extract_contents
-      @extractor = Extractor.new(extractor_params)
-      if @extractor.save
+      # service = ExtractorService.new(extractor_params)
+      # service.extract_contents
+      @extractor = Extractor.create(extractor_params)
+      if @extractor.valid?
         render json: serialize_resource(ExtractorResource, @extractor, nil), status: :created
-        # JSONAPI::ResourceSerializer.new(ExtractorResource).serialize_to_hash(ExtractorResource.new(@extractor, nil)), status: :created
       else
-        render json: @extractor.errors, status: :unprocessable_entity
+        jsonapi_render_errors json: @extractor, status: :unprocessable_entity
       end
     end
 
     private
       def extractor_params
-        params.require(:data).permit(attributes: :url)
+        params
+          .require(:data)
+          .require(:attributes)
+          .permit(:url)
       end
   end
 end

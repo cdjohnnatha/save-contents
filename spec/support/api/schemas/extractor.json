@@ -1,0 +1,8 @@
+{
+  "id": "https://json-schema.org/geo",
+  "$schema": "https://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "attributes": {
+    "url": "string"
+  }
+}
