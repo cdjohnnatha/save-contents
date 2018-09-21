@@ -20,5 +20,3 @@ test:
 production:
   <<: *default
   database: lim-save-contents_production
-  username: lim-save-contents
-  password: <%= ENV['DBPASS'] %>

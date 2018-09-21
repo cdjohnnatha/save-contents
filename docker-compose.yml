@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  savecontentsapi:
+    build: .
+    command: make production
+    volumes:
+      - .:/var/www/supermarket_api
+      - bundle-data:/var/www/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgresdbrails
+    links:
+      - postgresdbrails
+
+  postgresdbrails:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  bundle-data:
+    driver: local
+  postgres-data:
+    driver: local
