@@ -65,7 +65,7 @@ group :test do
   # Use to clean database before and after tests with RSpec
   gem "database_cleaner"
   # Use for codeclimate test coverage
-  gem "simplecov", require: false
+  # gem "simplecov", require: false
   gem "codeclimate-test-reporter", "~> 1.0.0"
 
   # gem "simplecov", "= 0.8.2"

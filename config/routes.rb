@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       #Documentation
       resources :docs, only: [:index]
-
-      post "/extractors", to: "extractors#create", as: "create_extractor"
-      get "/extractors", to: "extractors#index", as: "index_extractor"
-      # jsonapi_resources :extractors, only: [:index, :create]
+      resources :extractors, only: %i[index create]
+      # post "/extractors", to: "extractors#create", as: "create_extractor"
+      # get "/extractors", to: "extractors#index", as: "index_extractor"
     end
   end
 end

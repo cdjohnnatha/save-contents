@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :extractor do
-    url { Faker::Internet.url }
+    url { 'http://assistatecnologia.com.br/' }
   end
 end

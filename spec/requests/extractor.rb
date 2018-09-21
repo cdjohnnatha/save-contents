@@ -9,9 +9,9 @@ RSpec.describe "Extractor", type: :request do
 
   describe "/v1/extractors" do
     context "GET" do
-      before { create(:supermarket_product, :with_supermarket, supermarket_id: supermarket.id) }
+      before { create(:extractor) }
       context "when logged in" do
-        before(:each) { get api_v1_index_extractor_path }
+        before(:each) { get api_v1_extractors_path }
 
         it "should be returns a success" do
           expect(response).to have_http_status(200)
@@ -31,28 +31,30 @@ RSpec.describe "Extractor", type: :request do
 
     context "POST" do
       context "valid extractor attributes" do
-        before(:each) { post api_v1_create_extractor_path, params: valid_attrs }
+        before(:each) { post api_v1_extractors_path, params: valid_attrs }
 
         it "should return a created extractor" do
           expect(response).to have_http_status(201)
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it "validate serializer" do
           expect(json).to match_response_schema("extractor")
         end
 
-        it_behaves_like "a extractor attributes" do
-          let(:body) { json }
-          let(:attrs) { valid_attrs }
-        end
+        it_behaves_like "a json pattern"
+
+        it_behaves_like "a extractor attributes"
+        #   let(:body) { json }
+        #   let(:attrs) { valid_attrs }
+        # end
       end
     end
     context "invalid extractor attributes" do
-      before(:each) { post api_v1_create_extractor_path, params: invalid_attrs }
+      before(:each) { post api_v1_extractors_path, params: invalid_attrs }
 
-      it_behaves_like "a json error pattern"
-      it_behaves_like "an unprocessable error"
+      include_examples "a json error pattern"
+      include_examples "an unprocessable error"
     end
   end
 end

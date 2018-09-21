@@ -223,7 +223,6 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   shoulda-matchers
-  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   swagger-blocks
