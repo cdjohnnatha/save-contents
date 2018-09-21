@@ -11,10 +11,8 @@ RSpec.describe Extractor, type: :model do
     context "should require presence" do
       it { is_expected.to have_attribute :url }
     end
+    context "relationships" do
+      it { should have_many(:contents) }
+    end
   end
-  #   # context "relationships" do
-  #   #   it { should have_many(:supermarket_products) }
-  #   #   it { should have_many(:supermarkets).through(:supermarket_products) }
-  #   # end
-  # end
 end

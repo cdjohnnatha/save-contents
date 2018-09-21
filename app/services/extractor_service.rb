@@ -2,18 +2,17 @@
 
 require "net/http"
 class ExtractorService
-  attr_accessor :url, :uri, :full_content, :links_arr, :links_regex, :h_regex, :a_tag_regex
+  attr_accessor :uri, :full_content, :links_regex, :h_regex, :a_tag_regex
 
   def initialize(param)
-    @url = param[:attributes][:url]
-    @uri = URI(@url)
-    @full_content = Net::HTTP.get(@uri)
+    @uri = URI(param[:url])
     @links_regex = /(?<=href=\")(http(s)?:\/\/(.*?))(?=\")/
     @h_regex = /<[h]\d[^>]*>(.+?)<\/[h]\d>/
     @a_tag_regex = /<[a][^>]*>(.+?)<\/[a]>/
   end
 
   def extract_contents
+    @full_content = Net::HTTP.get(@uri)
     arr = extract_links
     [arr << extract_h_contents].flatten
   end
@@ -21,13 +20,13 @@ class ExtractorService
   private
     def extract_links
       @full_content.scan(@links_regex).map do |single|
-        "{ type: 'LINK', content: '#{single[0]}'}"
+        { tag: 1, content: single[0].to_str }
       end
     end
 
     def extract_h_contents
       @full_content.scan(@h_regex).map do |single|
-        "{ type: 'H', content: '#{single[0]}'}"
+        { tag: 0, content: single[0].to_str }
       end
     end
 

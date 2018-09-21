@@ -25,7 +25,7 @@ class Docs::V1::ExtractorsController
       response 200 do
         key :description, "extractor response"
         schema do
-          key :'$ref', :Extractor
+          key :'$ref', :ExtractorInclude
         end
       end
     end
