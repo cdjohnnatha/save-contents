@@ -21,7 +21,6 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
-/coverage/
 /spec/tmp
 *.orig
 rerun.txt
@@ -61,7 +60,11 @@ bower.json
 .powenv
 
 # Ignore coverage tempfiles.
-/coverage/*
+/coverage/assets
+/coverage/.last_run.json
+/coverage/.resultset.json
+/coverage/.resultset.json.lock
+/coverage/index.html
 
 # Ignore test files
 /spec/fixtures/files/

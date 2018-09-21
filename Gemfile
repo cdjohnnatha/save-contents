@@ -67,6 +67,9 @@ group :test do
   # Use for codeclimate test coverage
   gem "simplecov", require: false
   gem "codeclimate-test-reporter", "~> 1.0.0"
+
+  # gem "simplecov", "= 0.8.2"
+  # gem 'simplecov-shield'
   # Collection of testing matchers
   gem "shoulda-matchers"
   # Validate the JSON returned by your Rails JSON APIs

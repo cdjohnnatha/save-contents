@@ -18,8 +18,11 @@
 
 require "json_matchers/rspec"
 require "simplecov"
-SimpleCov.start
+# require 'simplecov-shield'
 
+SimpleCov.start
+# SimpleCov.formatter = SimpleCov::Formatter::ShieldFormatter
+# SimpleCov::Formatter::ShieldFormatter.config[:option] = value
 JsonMatchers.schema_root = "spec/support/api/schemas"
 
 RSpec.configure do |config|
