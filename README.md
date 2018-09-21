@@ -1,5 +1,7 @@
 # save-contents-api
 
+![Codeclimate coverage](https://github.com/cdjohnnatha/save-contents/blob/master/coverage/coverage.svg)
+
 The Save Contents Api is a Ruby on Rails API which store a url send by user and from there, extract contents from tags h(h1, h2, h3...) and links from it. 
 
 * The api uses [jsonapi.org](http://jsonapi.org/) specifications. 
