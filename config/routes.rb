@@ -6,8 +6,6 @@ Rails.application.routes.draw do
       #Documentation
       resources :docs, only: [:index]
       resources :extractors, only: %i[index create]
-      # post "/extractors", to: "extractors#create", as: "create_extractor"
-      # get "/extractors", to: "extractors#index", as: "index_extractor"
     end
   end
 end
