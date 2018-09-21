@@ -70,6 +70,7 @@ Path                | Action  | Description                       |
 Path                | Action  | Description                       |
 ---                 | ---     | ---                               |
 /api/v1/extractors  |  POST   | Expect a url to extract contents. |
+/api/v1/extractors  |  GET    | Get all urls.			  |
 /api/v1/docs        |  GET    | Swagger docs to test application  |
 
 ## Json structure
