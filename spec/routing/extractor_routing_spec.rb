@@ -7,6 +7,10 @@ RSpec.describe Api::V1::ExtractorsController, type: :routing do
   describe "routing" do
 
     it "routes to #create" do
+      expect(get: "/api/v1/extractors").to route_to("api/v1/extractors#index")
+    end
+
+    it "routes to #create" do
      expect(post: "/api/v1/extractors").to route_to("api/v1/extractors#create")
    end
   end

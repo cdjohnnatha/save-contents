@@ -4,6 +4,20 @@ class Docs::V1::ExtractorsController
   include Swagger::Blocks
 
   swagger_path "/extractors" do
+    operation :get do
+      key :sumary, "Get all urls"
+      key :description, "Returns all stored urls"
+      key :operationId, "indexExtractors"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "Extractor"
+      ]
+      response 200 do
+        key :description, "extractor response"
+      end
+    end
     operation :post do
       key :description, "Creates a new extractor."
       key :operationId, "createExtractor"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples "a json pattern" do
   it "should be returns json pattern" do
     expect(json).not_to be_blank

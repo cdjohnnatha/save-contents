@@ -27,8 +27,8 @@ gem "puma", "~> 3.11"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
-gem "jsonapi-resources", '= 0.9.0'
-gem 'jsonapi-utils', '~> 0.7.2'
+gem "jsonapi-resources", "= 0.9.0"
+gem "jsonapi-utils", "~> 0.7.2"
 
 # Shim to load environment variables from .env into ENV in development
 gem "dotenv-rails"

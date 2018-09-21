@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       resources :docs, only: [:index]
 
       post "/extractors", to: "extractors#create", as: "create_extractor"
-      # jsonapi_resources :extractors
+      get "/extractors", to: "extractors#index", as: "index_extractor"
+      # jsonapi_resources :extractors, only: [:index, :create]
     end
   end
 end
